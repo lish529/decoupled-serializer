@@ -8,7 +8,7 @@ import scalalib._
 // support BSP
 import mill.bsp._
 
-object DecoupledAdapter extends SbtModule with ScalafmtModule { m =>
+object DecoupledSerializer extends SbtModule with ScalafmtModule { m =>
   override def millSourcePath = os.pwd
   override def scalaVersion = "2.13.12"
   override def scalacOptions = Seq(
