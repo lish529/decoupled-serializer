@@ -26,8 +26,9 @@ class Serializer(val inputWidth: Int, val outputWidth: Int) extends Module {
   val currentPart = RegInit(0.U(chisel3.util.unsignedBitLength(numParts + 1).W))
 
   // Output is valid if we are emitting and have any chunks left
+  val thisPartValid = currentPart < numParts.U
   val nextPartValid = (currentPart + 1.U) < numParts.U
-  output.valid := emitting && nextPartValid
+  output.valid := emitting && thisPartValid
   // Emit each outputWidth-sized chunk
   output.bits := (inputCache >> (currentPart * outputWidth.U))(outputWidth - 1, 0)
 

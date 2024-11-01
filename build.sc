@@ -23,7 +23,7 @@ object DecoupledAdapter extends SbtModule with ScalafmtModule { m =>
   override def scalacPluginIvyDeps = Agg(
     ivy"org.chipsalliance:::chisel-plugin:6.5.0",
   )
-  object test extends SbtModuleTests with TestModule.ScalaTest {
+  object test extends SbtModuleTests with TestModule.ScalaTest with ScalafmtModule {
     override def ivyDeps = m.ivyDeps() ++ Agg(
       ivy"org.scalatest::scalatest::3.2.16"
     )
