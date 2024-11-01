@@ -56,7 +56,7 @@ class Serializer(val inputWidth: Int, val outputWidth: Int) extends Module {
 /** This is a **combinational** demuxer which routes the input message to the particular output port depending on its LSB.
   * If LSB=0, then route to port 0; else if LSB=1, route to port 1.
   */
-class Deumxer(val width: Int) extends Module {
+class Demuxer(val width: Int) extends RawModule {
   val in = IO(Flipped(Decoupled(UInt(width.W))))
   val out0 = IO(Decoupled(UInt(width.W)))
   val out1 = IO(Decoupled(UInt(width.W)))
